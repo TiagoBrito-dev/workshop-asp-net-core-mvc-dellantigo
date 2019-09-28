@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesWebMvc.Models;
+using SalesWebMvc.Models.ViewModels;
 
 namespace SalesWebMvc.Controllers
 {
@@ -17,14 +18,18 @@ namespace SalesWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Project SalesWebMvc";
+            ViewData["Message2"] = "Created by Tiago Brito";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Tiago Brito";
+            ViewData["Facebook"] = "https://web.facebook.com/tiago.brito.94801";
+            ViewData["Instagram"] = "https://www.instagram.com/tiago_brievan/?hl=pt-br";
+            ViewData["SocialMidia"] = "Social Midias:";
 
             return View();
         }
