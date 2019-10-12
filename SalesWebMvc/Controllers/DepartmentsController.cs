@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
+using SalesWebMvc.Services;
 
 namespace SalesWebMvc.Controllers
 {
@@ -18,6 +19,7 @@ namespace SalesWebMvc.Controllers
             _context = context;
         }
 
+        
         // GET: Departments
         public async Task<IActionResult> Index()
         {
@@ -32,8 +34,8 @@ namespace SalesWebMvc.Controllers
                 return NotFound();
             }
 
-            var department = await _context.Department
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var department = await _context.Department.FirstOrDefaultAsync(m => m.Id == id);
+
             if (department == null)
             {
                 return NotFound();
@@ -84,7 +86,7 @@ namespace SalesWebMvc.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]        
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Department department)
         {
             if (id != department.Id)

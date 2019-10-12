@@ -1,5 +1,4 @@
 ﻿@model SalesWebMvc.Models.SalesRecord
-
 @{
     ViewData["Title"] = "Details";
 }
@@ -28,9 +27,15 @@
         <dd>
             @Html.DisplayFor(model => model.Status)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Seller.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Seller.Name)
+        </dd>
     </dl>
 </div>
-<div>
+<div class="dl-horizontal">
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="SimpleSearch">Back to List</a>
 </div>
